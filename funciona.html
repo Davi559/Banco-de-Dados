@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é um Banco de Dados?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1C2526;
+            color: #FFC107;
+        }
+        .navbar {
+            transition: background-color 0.3s;
+        }
+        .navbar.scrolled {
+            background-color: #FFC107;
+            color: #1C2526;
+        }
+        .navbar.scrolled a {
+            color: #1C2526;
+        }
+        pre {
+            background-color: #2E2E2E;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            color: #FFC107;
+            overflow-x: auto;
+        }
+        #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FFC107;
+            color: #1C2526;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+  <nav id="navbar" class="navbar fixed top-0 w-full bg-transparent p-4 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a class="text-2xl font-bold" href="#home">Banco de Dados</a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="hover:underline">Início</a></li>
+                <li><a href="desenvolvedor.html" class="hover:underline">Desenvolvedor</a></li>
+                <li><a href="whatsdatabase.html" class="hover:underline">O que é Banco de Dados?</a></li>
+                <li><a href="funciona.html" class="hover:underline">Como funciona um banco de dados</a></li>
+                <li><a href="Comanos_SQL.html" class="hover:underline">Comandos SQL</a></li>
+                <li><a href="Comandos_XAMPP.html" class="hover:underline">Comandos XAMPP</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Conteúdo Principal -->
+    <section class="py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">O que é um Banco de Dados?</h2>
+            <div class="max-w-2xl mx-auto card bg-gray-800 p-6 rounded-lg shadow-lg">
+                <p class="text-lg leading-relaxed">
+                    Um banco de dados funciona como um sistema organizado para armazenar e gerenciar dados. 
+                    Ele usa tabelas, compostas por linhas (registros) e colunas (campos), para estruturar 
+                    informações. Por meio de linguagens como SQL, é possível:
+                </p>
+                <ul class="list-disc text-lg text-left ml-6 mt-4">
+                    <li>Inserir dados (adicionar registros).</li>
+                    <li>Consultar (buscar informações específicas).</li>
+                    <li>Atualizar (modificar dados existentes).</li>
+                    <li>Excluir (remover registros).</li>
+                    <li>Um software de gerenciamento (ex.: MySQL, PostgreSQL) controla essas operações, garantindo eficiência, segurança e acesso rápido.</li>
+                    <li>Bancos de dados são usados em sites, aplicativos e sistemas para organizar grandes volumes de dados.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+    <footer class="bg-gray-800 py-6 text-center">
+        <p><strong>Desenvolvido com HTML, CSS e TAILWIND</strong></p>
+        <div class="flex justify-center space-x-4">
+            <a href="https://github.com/Davi559" target="_blank" class="text-yellow-500 hover:text-yellow-600"><i class="fab fa-github text-2xl"></i></a>
+        </div>
+    </footer>
+
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="back-to-top" class="fas fa-arrow-up"></button>
+
+    <!-- JavaScript -->
+    <script>
+        // Navegação Suave (apenas para âncoras no index.html)
+        document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('index.html#')) {
+                    e.preventDefault();
+                    window.location.href = this.getAttribute('href');
+                }
+            });
+        });
+
+        // Mudar Estilo da Navbar ao Rolar
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Botão Voltar ao Topo
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
